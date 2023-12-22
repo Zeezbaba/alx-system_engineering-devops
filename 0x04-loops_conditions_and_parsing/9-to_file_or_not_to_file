@@ -6,7 +6,7 @@ bash_file="school"
 if [ -e "$bash_file" ]
 then
 	echo "school file exists"
-	if [ -s "#bash_file" ]
+	if [ -s "$bash_file" ]
 	then
 		echo "school file is not empty"
 	else
@@ -14,7 +14,7 @@ then
 
 	fi
 
-	if [ -f "#bash_file" ]
+	if [ -f "$bash_file" ]
 	then
 		echo "school is a regular file"
 	fi
