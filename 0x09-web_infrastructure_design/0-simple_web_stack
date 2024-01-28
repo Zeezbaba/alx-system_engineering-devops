@@ -1,1 +1,64 @@
-https://www.flickr.com/photos/199956175@N07/53491995649/in/dateposted-public/
+DIAGRAM LINK: https://www.flickr.com/photos/199956175@N07/53491995649/in/dateposted-public/
+
+	ANSWER:
+	What is a Server:
+
+	A server is a computer or a system that is dedicated to providing services or resources to other computers, known as clients, over a network. In the context of web hosting, a server handles requests from users and serves web pages or applications.
+	What is the Role of the Domain Name:
+
+	A domain name is a human-readable address that is used to identify resources on the internet. It provides a way for users to access websites using memorable names instead of numeric IP addresses. Domain names are translated to IP addresses through the Domain Name System (DNS).
+	What Type of DNS Record is www in www.foobar.com:
+
+	The www in www.foobar.com is a CNAME (Canonical Name) DNS record. It is an alias that points to the canonical domain name foobar.com or directly to the server's IP address.
+	What is the Role of the Web Server:
+
+	The web server's role is to handle incoming HTTP requests from users' browsers.
+	It serves static content (HTML, CSS, images) directly to users.
+	For dynamic content, it forwards requests to the application server.
+	What is the Role of the Application Server:
+
+	The application server executes server-side code for a web application.
+	It processes dynamic requests, running scripts (e.g., Python, Ruby, PHP) to generate content.
+	It interacts with the database to fetch or store data.
+	What is the Role of the Database:
+
+	The database stores and manages data for the web application.
+	It can store user information, content, and other relevant data.
+	The application server communicates with the database to retrieve or update information as needed.
+	What is the Server Using to Communicate with the User's Computer:
+
+	The server uses the HTTP (Hypertext Transfer Protocol) or HTTPS (HTTP Secure) protocol to communicate with the user's computer.
+	HTTP is the foundation of any data exchange on the Web and is used for transmitting hypertext (web pages) between a web server and a web browser.
+	HTTPS is a secure version of HTTP that uses encryption (SSL/TLS) to protect the data transmitted between the server and the user.
+
+
+You must be able to explain what the issues are with this infrastructure:
+
+	Single Point of Failure (SPOF):
+
+	In a one-server infrastructure, there is a single point of failure, meaning that if the server goes down or experiences issues, the entire application becomes unavailable.
+	Any hardware failure, software issue, or unexpected outage could result in downtime for the entire web application.
+	This lack of redundancy increases the vulnerability of the system.
+	Downtime during Maintenance:
+
+	When maintenance tasks are required, such as deploying new code or updates, the web server often needs to be restarted.
+	During the restart process, the web application becomes temporarily unavailable, resulting in downtime for users.
+	In a one-server setup, performing maintenance tasks can impact the continuity of service for an extended period.
+	Limited Scalability:
+
+	A single server has limitations in handling a large volume of incoming traffic or scaling to accommodate growing user demands.
+	If the website experiences a sudden surge in traffic, the server may struggle to handle the load, leading to performance issues or even downtime.
+	Scaling horizontally (adding more servers) to distribute the load becomes challenging in a one-server setup.
+	Resource Bottlenecks:
+
+	As traffic increases, the resources (CPU, memory, bandwidth) of a single server may become a bottleneck.
+	This can lead to degraded performance, slow response times, and an overall poor user experience.
+	Resource limitations make it difficult to efficiently handle concurrent requests from multiple users.
+	Lack of High Availability:
+
+	High availability refers to the ability of a system to remain operational and accessible even in the face of failures.
+	A one-server infrastructure lacks inherent high availability measures, making it susceptible to prolonged downtime in case of failures.
+	Security Concerns:
+
+	Security risks may be higher in a single-server environment since a compromise or attack on the server directly impacts the entire application.
+	There's a higher chance of unauthorized access, data breaches, or disruption of services.
