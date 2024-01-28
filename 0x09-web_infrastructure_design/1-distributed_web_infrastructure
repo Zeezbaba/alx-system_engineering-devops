@@ -1,0 +1,72 @@
+DIAGRAM LINK: https://www.flickr.com/photos/199956175@N07/53492073868/in/dateposted-public/
+
+ANSWERS:
+
+	Load Balancer (HAProxy):
+
+	Why Add It:
+
+	Introduces load balancing to distribute incoming traffic across multiple servers, ensuring optimal resource utilization and preventing a single point of failure.
+	Enhances fault tolerance and availability by directing requests to healthy servers.
+	Distribution Algorithm:
+
+	Configured with a round-robin distribution algorithm.
+	Round-robin evenly distributes incoming requests among the available servers in a cyclic fashion.
+	Active-Active or Active-Passive Setup:
+
+	Configured for an Active-Active setup.
+	In Active-Active, all servers actively handle incoming traffic simultaneously, sharing the load. It provides better scalability and utilization of resources.
+	Web Servers (Server 1, Server 2, Server 3):
+
+	Why Add Them:
+
+	Multiple web servers handle incoming requests to distribute the load and provide redundancy.
+	Enables horizontal scaling to accommodate growing traffic.
+	Role of the Web Servers:
+
+	Handle incoming HTTP requests, serving static content directly and forwarding dynamic requests to the application servers.
+	Execute server-side code and communicate with the database as necessary.
+	Database Cluster (Primary-Replica, Master-Slave):
+
+	Why Add It:
+
+	Introduces database clustering for high availability and fault tolerance.
+	Allows for read scalability by offloading read operations to replica nodes.
+	How Primary-Replica Cluster Works:
+
+	Primary node (Master) handles write operations and replication to Replica nodes.
+	Replica nodes (Slaves) replicate data from the Primary, providing read scalability and serving read operations.
+	Difference Between Primary and Replica Nodes:
+
+	Primary Node:
+	Handles write operations (insert, update, delete).
+	Replicates changes to Replica nodes.
+	Acts as the authoritative source for the database.
+	Replica Node:
+	Replicates data from the Primary.
+	Handles read operations, providing read scalability.
+	Provides fault tolerance but does not accept write operations.
+
+
+The issues with this infrastructure:
+
+	Single Point of Failure (SPOF):
+
+	Load Balancer as a SPOF:
+	While introducing multiple web servers improves fault tolerance, the load balancer can become a single point of failure.
+	If the load balancer fails, incoming traffic cannot be distributed, and the entire web application may become unavailable.
+	Security Issues:
+
+	Lack of Firewall:
+
+	If there is no firewall in place, servers are vulnerable to unauthorized access and potential security breaches.
+	A firewall helps control incoming and outgoing network traffic, providing an additional layer of security.
+	No HTTPS:
+
+	Transmitting data over HTTP instead of HTTPS poses a security risk.
+	Without encryption, sensitive information can be intercepted by malicious entities during data transmission.
+	No Monitoring:
+
+	Lack of Monitoring Tools:
+	Without monitoring tools, there is no real-time visibility into the performance, health, and status of the servers and the overall system.
+	Monitoring tools are crucial for identifying issues, performance bottlenecks, and potential security threats.
