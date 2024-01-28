@@ -1,0 +1,64 @@
+DIAGRAM LINK: https://www.flickr.com/photos/199956175@N07/53493159645/in/dateposted-public/
+
+ANSWERS:
+
+	Firewalls:
+
+	Purpose:
+	Firewalls are added to control and filter incoming and outgoing network traffic to and from the servers.
+	They act as a barrier between the servers and potential unauthorized access or malicious entities.
+	HTTPS:
+
+	Why Serve Traffic Over HTTPS:
+	HTTPS encrypts data in transit between the user's browser and the web servers, ensuring secure communication.
+	Protects sensitive information such as login credentials, personal data, and payment details from interception and unauthorized access.
+	Monitoring Tools:
+
+	Purpose:
+
+	Monitoring is implemented to gain insights into the performance, health, and status of the servers and the overall system.
+	Enables proactive identification of issues, performance bottlenecks, and potential security threats.
+	Data Collection by Monitoring Tool:
+
+	Monitoring tools collect data through agents or probes installed on each server.
+	Agents gather information on CPU usage, memory utilization, disk I/O, network traffic, server response times, and other relevant metrics.
+	Collected data is sent to a central monitoring server or cloud-based platform for analysis and visualization.
+	Monitoring Web Server QPS:
+
+	To monitor the web server's Query Per Second (QPS), set up monitoring rules that track the number of incoming requests per second.
+	Utilize monitoring tools to create custom dashboards displaying QPS trends over time.
+	Set up alerts to notify administrators if QPS exceeds or falls below predefined thresholds.
+
+
+explain what the issues are with this infrastructure:
+
+	Terminating SSL at the Load Balancer Level:
+
+	Issue:
+
+	Terminating SSL at the load balancer means that the load balancer decrypts the incoming HTTPS traffic and forwards it to the web servers over HTTP.
+	This can be a security concern because the communication between the load balancer and web servers is done in plain text (HTTP), leaving it vulnerable to eavesdropping or interception.
+	Solution:
+
+	Implement End-to-End Encryption (E2EE) by configuring SSL termination at the web servers. This ensures secure communication throughout the entire infrastructure.
+	Having Only One MySQL Server Capable of Accepting Writes:
+
+	Issue:
+
+	If there's only one MySQL server capable of accepting write operations (Primary), it becomes a single point of failure.
+	Any failure or maintenance activity on the Primary server can lead to write availability issues, impacting the entire application.
+	Solution:
+
+	Implement a high-availability MySQL setup with multiple servers capable of accepting write operations (Primary-Primary or Primary-Replica setup).
+	Use technologies like MySQL Group Replication or Percona XtraDB Cluster to ensure redundancy and fault tolerance.
+	Having Servers with All the Same Components (Database, Web Server, and Application Server):
+
+	Issue:
+
+	Homogeneous server components may lead to a lack of diversity in the stack, making the entire infrastructure susceptible to common vulnerabilities or software bugs.
+	If a critical flaw or bug affects one server, it is likely to affect all servers simultaneously.
+	Solution:
+
+	Introduce diversity in the stack by using different software versions, operating systems, or configurations.
+	Regularly update and patch software to address security vulnerabilities.
+	Implement a testing and staging environment to validate updates before applying them to the production environment.
