@@ -1,0 +1,30 @@
+DIAGRAM LINK: https://www.flickr.com/photos/199956175@N07/53493130374/in/dateposted-public/
+
+ANSWERS:
+
+explain some specifics about this infrastructure:
+For every additional element, why you are adding it?
+
+	Load Balancers (HAProxy):
+
+	Why Add It:
+	Scalability: Adding more load balancers allows for horizontal scaling, distributing the incoming traffic more efficiently among multiple servers.
+	Fault Tolerance: Multiple load balancers provide redundancy, ensuring continued operation even if one load balancer fails.
+	Traffic Management: Load balancers can be configured to route specific types of traffic to specialized servers, optimizing resource usage.
+	Web Servers:
+
+	Why Add More Servers:
+	Scalability: Adding more web servers allows the infrastructure to handle a larger volume of incoming requests, improving the overall capacity of the system.
+	Load Distribution: Distributing traffic across multiple servers enhances load balancing and prevents any single server from becoming a bottleneck.
+	Redundancy: Additional servers provide redundancy, ensuring continuous service even if one or more servers experience issues.
+	Database Cluster (Primary-Replica, Master-Slave):
+
+	Why Add More Nodes:
+	Scalability: Expanding the database cluster with more nodes allows for increased read and write capacity, accommodating growing user demand.
+	Fault Tolerance: Multiple database nodes provide redundancy, minimizing the impact of failures and ensuring data availability.
+	Load Distribution: Read operations can be distributed among replica nodes, reducing the load on the primary node and enhancing overall performance.
+	Firewalls:
+
+	Why Add It:
+	Security: Firewalls add an additional layer of security by controlling incoming and outgoing traffic, preventing unauthorized access and protecting against potential attacks.
+	Traffic Filtering: Firewalls help filter and block potentially harmful traffic, reducing the risk of security breaches.
