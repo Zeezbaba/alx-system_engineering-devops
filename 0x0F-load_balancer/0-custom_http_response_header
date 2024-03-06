@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+# A script that sets  a custom header on the server nginx response
